@@ -1,0 +1,22 @@
+<h1>New game</h1>
+
+<div class="container">
+  <table>
+    <tr class="lettergrid">
+      <% @grid.each do |letter| %>
+        <td class="letterbox"><%= letter  %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>
+
+<form action="score">
+  <div class="form-group">
+    <label for="guess">What is the longest word you can find?</label>
+    <input type="text" name="guess" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Play!</button>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :grid, @grid %>
+  </form>
